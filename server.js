@@ -14,8 +14,12 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "./public/home.html"));
 });
 
+app.get("/survey", function(req, res){
+    res.sendFile(path.join(__dirname, "./public/survey.html"));
+});
+
 // sample express post
-app.post('/profile', function (req, res, next) {
+app.post('/api', function (req, res, next) {
     console.log(req.body)
     res.json(req.body)
   })
