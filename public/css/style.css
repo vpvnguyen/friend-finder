@@ -1,0 +1,7 @@
+select.empty {
+	color: grey;
+}
+/* Hidden placeholder */
+select option[disabled]:first-child {
+	display: none;
+}
