@@ -26,11 +26,33 @@
 //     console.log(val)
 //   });
 
-  $( "form" ).submit(function( event ) {
-    console.log( $( this ).serializeArray() );
+$("form").submit(function (event) {
     event.preventDefault();
-  });
+    // console.log($('.form-control').val());
+    var name = $('#name').val();
+    var image = $('#image').val();
+    console.log(name, image)
+});
 
-  
+// constructor function called "Programmer" which can be used to create objects containing information on various programmers.
+
+function formDetails(name, title, age, fav) {
+    this.name = name;
+    this.title = title;
+    this.age = age;
+    this.fav = fav;
+    // this.print = function () {
+    //     console.log(this.name, this.title, this.age, this.fav);
+    // }
+}
+
+// // prototype way
+// Programmer.prototype.printInfo = function () {
+//     console.log(this.name, this.title, this.age, this.fav);
+// }
+
+// // create instance of programmer
+// var bob = new Programmer('Vincent', 'Engineer', 30, 'JS');
+// bob.printInfo();
 
 
