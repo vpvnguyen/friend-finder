@@ -1,5 +1,5 @@
-// bootstrap form validation
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// bootstrap form validation 
+// disabling form submissions if there are invalid fields 
 (function () {
     'use strict';
     window.addEventListener('load', function () {
@@ -18,17 +18,9 @@
     }, false);
 })();
 
-// // get value from form
-// $("#submit").click(function(event) {
-//     event.preventDefault();
-
-//     var val = $('.form-control').serializeArray();
-//     console.log(val)
-//   });
-
+// form submit button
 $("form").submit(function (event) {
     event.preventDefault();
-    // console.log($('.form-control').val());
     var name = $('#name').val();
     var image = $('#image').val();
     var q1 = $('#q1').val();
@@ -41,30 +33,18 @@ $("form").submit(function (event) {
     var q8 = $('#q8').val();
     var q9 = $('#q9').val();
     var q10 = $('#q10').val();
+    var questions = [];
+    questions.push(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10);
 
-    console.log(name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10)
-
+    // construct object from form details
+    FormDetails(name, image, questions);
 });
 
-// constructor function called "Programmer" which can be used to create objects containing information on various programmers.
-
-function formDetails(name, title, age, fav) {
+// construct object consisting of form details
+function FormDetails(name, image, questions) {
     this.name = name;
-    this.title = title;
-    this.age = age;
-    this.fav = fav;
-    // this.print = function () {
-    //     console.log(this.name, this.title, this.age, this.fav);
-    // }
-}
-
-// // prototype way
-// Programmer.prototype.printInfo = function () {
-//     console.log(this.name, this.title, this.age, this.fav);
-// }
-
-// // create instance of programmer
-// var bob = new Programmer('Vincent', 'Engineer', 30, 'JS');
-// bob.printInfo();
-
+    this.image = image;
+    this.questions = questions;
+    console.log(this.name, this.image, this.questions);
+};
 
