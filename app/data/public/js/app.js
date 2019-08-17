@@ -20,17 +20,28 @@
 
 // construct object from form details
 function FormDetails(name, image, questions) {
-    this.name = name;
-    this.image = image;
-    this.questions = questions;
-    console.log(this.name, this.image, this.questions);
+    var formDetails = {
+        name: name,
+        image: image,
+        questions: questions
+    }
+
+    // if details are missing, value is null
+    console.log(formDetails)
+
+    $.post("/api/characters", formDetails)
+        .then(function (data) {
+            // if details are missing, value is now empty str
+            console.log(data);
+            alert("Submitting form...");
+        });
 };
 
 // form submit button
 $("form").submit(function (event) {
     event.preventDefault();
-    var name = $('#name').val();
-    var image = $('#image').val();
+    var name = $('#name').val().trim();
+    var image = $('#image').val().trim();
     var q1 = $('#q1').val();
     var q2 = $('#q2').val();
     var q3 = $('#q3').val();
@@ -46,6 +57,7 @@ $("form").submit(function (event) {
 
     // construct object from form details
     FormDetails(name, image, questions);
-    console.log(validation);
 });
+
+
 
