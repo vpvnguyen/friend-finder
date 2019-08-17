@@ -32,15 +32,7 @@ var connection = mysql.createConnection({
 // construct object from form details
 function insertFormDetails(name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) {
 
-    // insert data intop mysql
-    // SELECT * FROM actors WHERE attitude='relaxed';
 
-    connection.query(`INSERT INTO friends (name, email, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10], function (err, result) {
-            if (err) throw err;
-            console.log(result.affectedRows)
-            $('#data').append('<h1>added into DB</h1>');
-        });
 };
 
 // form submit button
