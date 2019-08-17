@@ -18,22 +18,28 @@
     }, false);
 })();
 
+var mysql = require('../../../../node_modules/mysql');
+
+// MySQL DB Connection Information (remember to change this with our specific credentials)
+var connection = mysql.createConnection({
+    host: "localhost",
+    port: 8889,
+    user: "root",
+    password: "root",
+    database: "friendFinder"
+});
+
 // construct object from form details
-function FormDetails(name, image, questions) {
-    var formDetails = {
-        name: name,
-        image: image,
-        questions: questions
-    }
+function insertFormDetails(name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) {
 
-    // if details are missing, value is null
-    console.log(formDetails)
+    // insert data intop mysql
+    // SELECT * FROM actors WHERE attitude='relaxed';
 
-    $.post("/api/characters", formDetails)
-        .then(function (data) {
-            // if details are missing, value is now empty str
-            console.log(data);
-            alert("Submitting form...");
+    connection.query(`INSERT INTO friends (name, email, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10], function (err, result) {
+            if (err) throw err;
+            console.log(result.affectedRows)
+            $('#data').append('<h1>added into DB</h1>');
         });
 };
 
@@ -42,21 +48,19 @@ $("form").submit(function (event) {
     event.preventDefault();
     var name = $('#name').val().trim();
     var image = $('#image').val().trim();
-    var q1 = $('#q1').val();
-    var q2 = $('#q2').val();
-    var q3 = $('#q3').val();
-    var q4 = $('#q4').val();
-    var q5 = $('#q5').val();
-    var q6 = $('#q6').val();
-    var q7 = $('#q7').val();
-    var q8 = $('#q8').val();
-    var q9 = $('#q9').val();
-    var q10 = $('#q10').val();
-    var questions = [];
-    questions.push(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10);
+    var q1 = Number($('#q1').val());
+    var q2 = Number($('#q2').val());
+    var q3 = Number($('#q3').val());
+    var q4 = Number($('#q4').val());
+    var q5 = Number($('#q5').val());
+    var q6 = Number($('#q6').val());
+    var q7 = Number($('#q7').val());
+    var q8 = Number($('#q8').val());
+    var q9 = Number($('#q9').val());
+    var q10 = Number($('#q10').val());
 
     // construct object from form details
-    FormDetails(name, image, questions);
+    insertFormDetails(name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10);
 });
 
 
