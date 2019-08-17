@@ -18,6 +18,14 @@
     }, false);
 })();
 
+// construct object from form details
+function FormDetails(name, image, questions) {
+    this.name = name;
+    this.image = image;
+    this.questions = questions;
+    console.log(this.name, this.image, this.questions);
+};
+
 // form submit button
 $("form").submit(function (event) {
     event.preventDefault();
@@ -38,13 +46,6 @@ $("form").submit(function (event) {
 
     // construct object from form details
     FormDetails(name, image, questions);
+    console.log(validation);
 });
-
-// construct object consisting of form details
-function FormDetails(name, image, questions) {
-    this.name = name;
-    this.image = image;
-    this.questions = questions;
-    console.log(this.name, this.image, this.questions);
-};
 
