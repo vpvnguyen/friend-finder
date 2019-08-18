@@ -1,5 +1,4 @@
-// bootstrap form validation 
-// disabling form submissions if there are invalid fields 
+// Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict';
     window.addEventListener('load', function () {
@@ -13,33 +12,19 @@
                     event.stopPropagation();
                 }
                 form.classList.add('was-validated');
+                if (form.checkValidity() === true) {
+                    submitForm()
+                }
             }, false);
         });
     }, false);
 })();
 
-var mysql = require('../../../../node_modules/mysql');
+function submitForm() {
+    // form submit button
 
-// MySQL DB Connection Information (remember to change this with our specific credentials)
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 8889,
-    user: "root",
-    password: "root",
-    database: "friendFinder"
-});
-
-// construct object from form details
-function insertFormDetails(name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10) {
-
-
-};
-
-// form submit button
-$("form").submit(function (event) {
-    event.preventDefault();
-    var name = $('#name').val().trim();
-    var image = $('#image').val().trim();
+    var userName = $('#name').val().trim();
+    var userImage = $('#image').val().trim();
     var q1 = Number($('#q1').val());
     var q2 = Number($('#q2').val());
     var q3 = Number($('#q3').val());
@@ -52,8 +37,36 @@ $("form").submit(function (event) {
     var q10 = Number($('#q10').val());
 
     // construct object from form details
-    insertFormDetails(name, image, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10);
-});
+    var userProfile = {
+        name: userName,
+        image: userImage,
+        answer1: q1,
+        answer2: q2,
+        answer3: q3,
+        answer4: q4,
+        answer5: q5,
+        answer6: q6,
+        answer7: q7,
+        answer8: q8,
+        answer9: q9,
+        answer10: q10
+    }
+
+    console.log(userProfile)
+    // Send the POST request.
+    $.ajax(`/api/form`, {
+        type: "POST",
+        data: userProfile
+    }).then(
+        function () {
+            console.log("created new user profile");
+            // Reload the page to get the updated list
+            // location.reload();
+        }
+    ).catch(function (err) {
+        if (err) throw err;
+        console.log('uh oh');
+    });
 
 
-
+}
