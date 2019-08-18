@@ -78,10 +78,9 @@ app.post('/api/form', function (req, res) {
 
     // validate incoming data
     function checkForm(input) {
-        if (input.name.length > 2 && Number(input.answer1) > 0 && Number(input.answer2) > 0 &&
-            Number(input.answer3) > 0 && Number(input.answer4) > 0 && Number(input.answer5) > 0 &&
-            Number(input.answer6) > 0 && Number(input.answer7) > 0 && Number(input.answer8) > 0 &&
-            Number(input.answer9) > 0 && Number(input.answer10) > 0) {
+        if (input.name.length > 0 && input.image.length > 0 && Number(input.answer1) > 0 && Number(input.answer2) > 0 &&
+            Number(input.answer3) > 0 && Number(input.answer4) > 0 && Number(input.answer5) > 0 && Number(input.answer6) > 0 &&
+            Number(input.answer7) > 0 && Number(input.answer8) > 0 && Number(input.answer9) > 0 && Number(input.answer10) > 0) {
             return true;
         } else {
             return false;
@@ -148,7 +147,9 @@ app.get('/api', function (req, res) {
     });
 });
 
-
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, './app/data/public/home.html'));
+});
 // listen for route
 app.listen(PORT, function () {
     // Log (server-side) when our server has started
