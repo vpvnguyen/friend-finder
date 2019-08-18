@@ -53,6 +53,7 @@ function submitForm() {
     }
 
     console.log(userProfile)
+
     // Send the POST request.
     $.ajax(`/api/form`, {
         type: "POST",
