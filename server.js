@@ -19,10 +19,10 @@ var connection = mysql.createConnection({
 // connected to mysql
 connection.connect(function (err) {
     if (err) {
-        console.error(`error connecting: ${err.stack}`);
+        console.error(`\nerror connecting: ${err.stack}\n`);
         return;
     }
-    console.log(`MySQL connected as id ${connection.threadId}`);
+    console.log(`\nMySQL connected as id ${connection.threadId}\n`);
 });
 
 // MIDDLEWARE
@@ -50,13 +50,10 @@ app.get('/api/:name', function (req, res) {
 
     connection.query(`SELECT * FROM friends WHERE name=?`, userProfile, function (err, result) {
         if (err) throw err;
-        // We then begin building out HTML elements for the page.
         var html = '<h1> Person </h1>';
 
-        // Here we begin an unordered list.
         html += '<ul>';
 
-        // We then use the retrieved records from the database to populate our HTML file.
         for (var i = 0; i < result.length; i++) {
             html += `<li><p> ID: ${result[i].id}</p>`;
             html += `<p>name: ${result[i].name}</p>`;
@@ -64,38 +61,62 @@ app.get('/api/:name', function (req, res) {
             html += `<p>answer2: ${result[i].answer2}</p></li>`;
         }
 
-        // We close our unordered list.
         html += '</ul>';
 
-        // Finally we send the user the HTML file we dynamically created.
         res.send(html);
     });
 });
 
 // Create a new user profile
-// frontend form to aysnc POST data to route
+// frontend form POST data to route
 app.post('/api/form', function (req, res) {
 
+    console.log('==============req.body===============');
     console.log(req.body);
-    connection.query(`INSERT INTO friends 
-    (name, image, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10)
-    VALUES 
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [req.body.name, req.body.image, req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, req.body.answer5, req.body.answer6, req.body.answer7, req.body.answer8, req.body.answer9, req.body.answer10],
-        function (err, result) {
-            if (err) {
-                return res.status(500).end();
-            }
+    checkForm(req.body);
+    console.log('==============req.body===============');
 
-            // Send back the ID of the new profile
-            console.log({ id: result.insertId });
-            console.log('user added');
-        });
+    // validate incoming data
+    function checkForm(input) {
+        if (input.name.length > 2 && Number(input.answer1) > 0 && Number(input.answer2) > 0 &&
+            Number(input.answer3) > 0 && Number(input.answer4) > 0 && Number(input.answer5) > 0 &&
+            Number(input.answer6) > 0 && Number(input.answer7) > 0 && Number(input.answer8) > 0 &&
+            Number(input.answer9) > 0 && Number(input.answer10) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    if (checkForm(req.body)) {
+
+        // insert user profile into mysql
+        connection.query(`INSERT INTO friends 
+        (name, image, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10)
+        VALUES 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [req.body.name, req.body.image, req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4,
+            req.body.answer5, req.body.answer6, req.body.answer7, req.body.answer8, req.body.answer9, req.body.answer10],
+            function (err, result) {
+                if (err) {
+                    return res.status(500).end();
+                }
+
+                // Send back the ID of the new profile
+                console.log({ id: result.insertId });
+                console.log('profile added')
+                return res.status(200).end();
+            });
+    } else {
+        console.log('did not insert data into sql');
+        return res.status(500).end();
+    }
 });
 
 // display everything from DB
-app.get('/all', function (req, res) {
+app.get('/api', function (req, res) {
 
-    // query for friends table;
+    // query for friends table
     connection.query(`SELECT * FROM friends`, function (err, result) {
         if (err) throw err;
 
@@ -103,7 +124,7 @@ app.get('/all', function (req, res) {
         var html = '<h1> all </h1>';
         html += '<ul>';
 
-        // We then use the retrieved records from the database to populate our HTML file.
+        // use results from query to display in html
         for (var i = 0; i < result.length; i++) {
             html += `<li><p> ID: ${result[i].id}</p>`;
             html += `<li><p> name: ${result[i].name}</p>`;
@@ -120,16 +141,32 @@ app.get('/all', function (req, res) {
             html += `<li><p> answer10: ${result[i].answer10}</p></li>`;
         }
 
-        // We close our unordered list.
         html += '</ul>';
 
-        // Finally we send the user the HTML file we dynamically created.
+        // send dynamically created file
         res.send(html);
     });
 });
 
+
 // listen for route
 app.listen(PORT, function () {
     // Log (server-side) when our server has started
-    console.log(`Server listening on: http://localhost:${PORT}`);
+    console.log(`\nServer listening on: http://localhost:${PORT}\n`);
 });
+
+// Your htmlRoutes.js file should include two routes:
+
+// A GET Route to /survey which should display the survey page.
+// A default, catch-all route that leads to home.html which displays the home page.
+
+
+
+// Your apiRoutes.js file should contain two routes:
+
+// A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
+// A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
+
+
+
+// You should save your application's data inside of app/data/friends.js as an array of objects. Each of these objects should roughly follow the format below.
