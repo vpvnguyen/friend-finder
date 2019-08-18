@@ -1,28 +1,35 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// bootstrap front-end form validation
+// checks if fields are filled in
 (function () {
     'use strict';
     window.addEventListener('load', function () {
+
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
+        var forms = $('.needs-validation');
+
         // Loop over them and prevent submission
         var validation = Array.prototype.filter.call(forms, function (form) {
             form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false) {
+
+                if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
                 }
                 form.classList.add('was-validated');
-                if (form.checkValidity() === true) {
-                    submitForm()
+
+                // if name and image fields are valid, get form details
+                if (form.checkValidity()) {
+                    getForm();
                 }
             }, false);
         });
     }, false);
 })();
 
-function submitForm() {
-    // form submit button
+// get form details and pass to validation
+function getForm() {
 
+    // get data from form
     var userName = $('#name').val().trim();
     var userImage = $('#image').val().trim();
     var q1 = Number($('#q1').val());
@@ -36,7 +43,7 @@ function submitForm() {
     var q9 = Number($('#q9').val());
     var q10 = Number($('#q10').val());
 
-    // construct object from form details
+    // construct object from form data
     var userProfile = {
         name: userName,
         image: userImage,
@@ -50,24 +57,33 @@ function submitForm() {
         answer8: q8,
         answer9: q9,
         answer10: q10
-    }
+    };
 
-    console.log(userProfile)
+    // validate form data
+    validateForm(userProfile);
+};
 
+function validateForm(userProfile) {
+
+    // checks if answer to question is filled in correctly
+    if (userProfile.name.length == 0 || userProfile.image.length == 0 || userProfile.answer1 == 0 || userProfile.answer2 == 0 || userProfile.answer3 == 0 || userProfile.answer4 == 0 || userProfile.answer5 == 0 || userProfile.answer6 == 0 || userProfile.answer7 == 0 || userProfile.answer8 == 0 || userProfile.answer9 == 0 || userProfile.answer10 == 0) {
+        alert('Please fill out all fields.');
+    } else {
+        submitForm(userProfile);
+    };
+};
+
+function submitForm(userProfile) {
     // Send the POST request.
     $.ajax(`/api/form`, {
-        type: "POST",
+        type: 'POST',
         data: userProfile
-    }).then(
-        function () {
-            console.log("created new user profile");
-            // Reload the page to get the updated list
-            // location.reload();
-        }
-    ).catch(function (err) {
+    }).then(function () {
+        console.log('created new user profile');
+        // Reload the page to get the updated list
+        // location.reload();
+    }).catch(function (err) {
         if (err) throw err;
         console.log('uh oh');
     });
-
-
-}
+};
