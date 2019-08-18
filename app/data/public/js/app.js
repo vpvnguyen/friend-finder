@@ -75,13 +75,9 @@ function validateForm(userProfile) {
 
 function submitForm(userProfile) {
     // Send the POST request.
-    $.ajax(`/api/form`, {
+    $.ajax(`/api/friends`, {
         type: 'POST',
         data: userProfile
-    }).then(function () {
-        console.log('created new user profile');
-        // Reload the page to get the updated list
-        // location.reload();
     }).catch(function (err) {
         if (err) throw err;
         console.log('uh oh');
