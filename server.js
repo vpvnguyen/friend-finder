@@ -11,12 +11,12 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // serve static pages from public folder; css / front js handling
-app.use(express.static('./app/data/public'));
+app.use(express.static('./app/public'));
 
 // ROUTING
-require('./app/data/routing/mysqlRoutes')(app);
+require('./app/routing/mysqlRoutes')(app);
 // require('./app/data/routing/apiRoutes')(app);
-require('./app/data/routing/htmlRoutes')(app);
+require('./app/routing/htmlRoutes')(app);
 
 app.listen(PORT, function () {
     // Log (server-side) when our server has started
