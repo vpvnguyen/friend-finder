@@ -1,4 +1,3 @@
-var path = require('path');
 var mysql = require('mysql');
 
 module.exports = function (app) {
