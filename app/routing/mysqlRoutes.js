@@ -12,7 +12,6 @@ module.exports = function (app) {
         database: 'friendFinder'
     });
 
-
     // connected to mysql
     connection.connect(function (err) {
         if (err) {
@@ -23,14 +22,14 @@ module.exports = function (app) {
     });
 
     // display all friends table
-    app.get('/api', function (req, res) {
+    app.get('/db', function (req, res) {
 
         // query for friends table
         connection.query(`SELECT * FROM friends`, function (err, result) {
             if (err) throw err;
 
             // build html
-            var html = '<h1> all </h1>';
+            var html = '<h1> All Friends </h1>';
             html += '<ul>';
 
             // use results from query to display in html
@@ -58,14 +57,14 @@ module.exports = function (app) {
     });
 
     // display possible friends - WIP
-    app.get('/api/friends', function (req, res) {
+    app.get('/db/friends', function (req, res) {
 
         // query for friends table
         connection.query(`SELECT * FROM friends`, function (err, result) {
             if (err) throw err;
 
             // build html
-            var html = '<h1> all </h1>';
+            var html = '<h1> My Friends </h1>';
             html += '<ul>';
 
             // use results from query to display in html
@@ -94,7 +93,7 @@ module.exports = function (app) {
 
     // Create a new user profile
     // frontend form POST data to route
-    app.post('/api/friends', function (req, res) {
+    app.post('/db/friends', function (req, res) {
 
         console.log('\nPOST request from survey');
         console.log(req.body);
@@ -136,14 +135,14 @@ module.exports = function (app) {
     });
 
     // get data about person name
-    app.get('/api/friends/:name', function (req, res) {
+    app.get('/db/friends/:name', function (req, res) {
 
         // get user's name from route and query for all user info
         var userProfile = req.params.name;
 
         connection.query(`SELECT * FROM friends WHERE name=?`, userProfile, function (err, result) {
             if (err) throw err;
-            var html = '<h1> Person </h1>';
+            var html = '<h1> This guy </h1>';
 
             html += '<ul>';
 

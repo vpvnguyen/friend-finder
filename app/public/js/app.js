@@ -75,7 +75,7 @@ function validateForm(userProfile) {
 
 function submitForm(userProfile) {
     // Send the POST request.
-    $.ajax(`/api/friends`, {
+    $.ajax(`/db/friends`, {
         type: 'POST',
         data: userProfile
     }).catch(function (err) {
@@ -83,3 +83,5 @@ function submitForm(userProfile) {
         console.log('uh oh');
     });
 };
+
+// GET DATA TO API / JSON

@@ -15,7 +15,7 @@ app.use(express.static('./app/public'));
 
 // ROUTING
 require('./app/routing/mysqlRoutes')(app);
-// require('./app/data/routing/apiRoutes')(app);
+require('./app/routing/apiRoutes')(app);
 require('./app/routing/htmlRoutes')(app);
 
 app.listen(PORT, function () {
