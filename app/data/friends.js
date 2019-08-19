@@ -5,31 +5,31 @@ module.exports = [
         'image': 'https://avatars3.githubusercontent.com/u/46111014?s=460&v=4',
         'answers': [
             5,
-            1,
             4,
-            4,
-            3,
-            1,
-            2,
             5,
-            2,
+            5,
+            3,
+            4,
+            5,
+            5,
+            1,
             1
         ]
     },
     {
-        'name': 'Victor Nguyen',
-        'image': 'randomimage.com',
+        'name': 'Tony Stark',
+        'image': 'https://cdn3.movieweb.com/i/article/cmNjxuPar3tWmAtigcbgI30c0qGMAJ/798:50/Avengers-Endgame-Tony-Stark-Super-Solider-Theory.jpg',
         'answers': [
             5,
+            5,
+            2,
+            5,
             1,
-            4,
             1,
-            2,
             1,
-            2,
-            2,
-            2,
-            3
+            3,
+            5,
+            1
         ]
     },
     {
@@ -41,6 +41,22 @@ module.exports = [
             1,
             1,
             1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    },
+    {
+        'name': 'Sponge Bob',
+        'image': 'https://vignette.wikia.nocookie.net/nickelodeon/images/0/02/SpongeBob_in_2018.png/revision/latest?cb=20190607225227',
+        'answers': [
+            3,
+            5,
+            5,
+            2,
+            3,
             1,
             1,
             1,
