@@ -2,13 +2,54 @@ var allFriends = require('../data/friends');
 
 module.exports = function (app) {
 
-    app.get('/api/friends', function (req, res) {
+    // display all friends list json
+    app.get('/api/friends', (req, res) => {
+
+        console.log('\nGET request | friends.js => json | API');
+        console.log(req.body);
+        console.log('\n');
+
+        allFriends.push(req.body);
         res.json(allFriends);
     });
 
-    app.post('/api/friends', function (req, res) {
-        allFriends.push(req.body);
-        res.json();
-    });
+    // find best match and display as a modal
+    app.post('/api/friends', (req, res) => {
 
+        console.log('\nPOST request | survey => html | Attempt match to friends.js');
+        console.log(req.body);
+        console.log('\n');
+
+        // add new friend to friends.js
+        var newFriend = req.body;
+
+        // create an object to hold best match; score default to 50 as it can be the highest score
+        var match = {
+            name: '',
+            image: '',
+        }
+
+        // set current score of best match
+        var matchDifference = 50;
+
+        for (var i = 0; i < allFriends.length; i++) {
+            var userDifference = 0;
+            for (var j = 0; j < allFriends[i].answers.length; j++) {
+                userDifference += Math.abs(allFriends[i].answers[j] - newFriend.answers[j]);
+                if (userDifference <= matchDifference) {
+                    match.name = allFriends[i].name,
+                        match.image = allFriends[i].image,
+                        matchDifference = userDifference
+                }
+            }
+        }
+
+        // add new profile to friend list
+        allFriends.push(newFriend);
+
+        console.log('\n--- MATCH ---')
+        console.log(match);
+        // send back json of best match
+        res.json(match);
+    });
 };
