@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -44,11 +46,11 @@
                     <label for="a1">1. I have a vivid imagination</label>
                     <select class="form-control empty" id="q1">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
 
                 </div>
@@ -56,117 +58,130 @@
                     <label for="q2">2. I love large parties</label>
                     <select class="form-control empty" id="q2">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q3">3. I believe in the importance of art</label>
                     <select class="form-control empty" id="q3">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q4">4. I am always busy</label>
                     <select class="form-control empty" id="q4">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q5">5. I would never cheat on my taxes </label>
                     <select class="form-control empty" id="q5">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q6">6. I make people feel welcome</label>
                     <select class="form-control empty" id="q6">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q7">7. I am easy to satisfy</label>
                     <select class="form-control empty" id="q7">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q8">8. I seek adventure</label>
                     <select class="form-control empty" id="q8">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q9">9. I love reading API documentation</label>
                     <select class="form-control empty" id="q9">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="q10">10. I like pineapples on my pizza</label>
                     <select class="form-control empty" id="q10">
                         <option value="" selected disabled>Please select</option>
-                        <option value="1">1</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">5 (Strongly Agree)</option>
                     </select>
                 </div>
             </div>
             <!-- Link to open the modal and Submit Form -->
-            <button id="submit-form" class="btn btn-dark mt-2" type="submit"><a id="match" href="#ex1"
-                    rel="modal:open">Submit form</a></button>
+            <button id="submit-form" class="btn btn-dark mt-2" type="submit" data-toggle="modal" data-target="#exampleModal">Submit form</button>
         </form>
     </div>
 
-    <!-- open modal and display match when form is submitted -->
-    <div id="ex1" class="modal">
-        <div class="row">
-            <div id="match-image">photo</div>
+    <!-- callback modal -->
+    <div id="cb"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="match-title">Please fill out the form!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="match-name">No match yet :(</div>
+                    <div id="match-image"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="row">
-                <div id="match-name">name</div>
-        </div>
-        <a href="#" rel="modal:close">Close</a>
     </div>
 
     <!-- footer -->
@@ -179,11 +194,14 @@
     </footer>
 
     <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="./js/app.js"></script>
 </body>
 

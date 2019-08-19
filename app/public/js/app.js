@@ -104,8 +104,11 @@ function postAPI(userProfileJson) {
         type: 'POST',
         data: userProfileJson
     }).done((match) => {
-        alert(JSON.stringify(match))
-        // $("#myModal").modal("show"); // ADD MODAL SUPPORT
+        $('#match-title').empty();
+        $('#match-name').empty();
+        $('#match-title').text('Match!');
+        $('#match-name').text(match.name);
+        $('#match-image').text(match.image)
     }).catch((err) => {
         if (err) throw err;
         console.log('uh oh');
