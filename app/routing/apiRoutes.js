@@ -23,7 +23,7 @@ module.exports = function (app) {
         // add new friend to friends.js
         var newFriend = req.body;
 
-        // create an object to hold best match; score default to 50 as it can be the highest score
+        // create an object to hold best match
         var match = {
             name: '',
             image: '',
@@ -31,9 +31,11 @@ module.exports = function (app) {
 
         // set current score of best match
         var matchDifference = 50;
+        var userDifference = 0
 
+        // go through friends.js and check compatibility
         for (var i = 0; i < allFriends.length; i++) {
-            var userDifference = 0;
+            userDifference = 0;
             for (var j = 0; j < allFriends[i].answers.length; j++) {
                 userDifference += Math.abs(allFriends[i].answers[j] - newFriend.answers[j]);
                 if (userDifference <= matchDifference) {
@@ -49,7 +51,10 @@ module.exports = function (app) {
 
         console.log('\n--- MATCH ---')
         console.log(match);
+
         // send back json of best match
         res.json(match);
+
+        // WIP - to send data back to front as a modal of matcb
     });
 };

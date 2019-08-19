@@ -2,14 +2,14 @@
 // checks if fields are filled in
 (function () {
     'use strict';
-    window.addEventListener('load', function () {
+    window.addEventListener('load', () => {
 
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = $('.needs-validation');
 
         // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
+        var validation = Array.prototype.filter.call(forms, (form) => {
+            form.addEventListener('submit', (event) => {
 
                 if (!form.checkValidity()) {
                     event.preventDefault();
@@ -85,7 +85,7 @@ function submitForm(userProfile) {
     $.ajax(`/db/friends`, {
         type: 'POST',
         data: userProfile
-    }).catch(function (err) {
+    }).catch((err) => {
         if (err) throw err;
         console.log('uh oh');
     });
@@ -97,8 +97,22 @@ function postAPI(userProfileJson) {
     $.ajax(`/api/friends`, {
         type: 'POST',
         data: userProfileJson
-    }).catch(function (err) {
+    }).then((err, res) => {
+        getMatch(res)
+    }).catch((err) => {
         if (err) throw err;
         console.log('uh oh');
     });
 };
+
+function getMatch(match) {
+
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $.ajax({ url: "/api/friends/", method: "GET" })
+        .then(function (match) {
+
+            // Here we then log the waitlistData to console, where it will show up as an object.
+            console.log(match);
+            console.log("------------------------------------");
+        });
+}

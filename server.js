@@ -17,7 +17,7 @@ require('./app/routing/mysqlRoutes')(app);
 require('./app/routing/apiRoutes')(app);
 require('./app/routing/htmlRoutes')(app);
 
-app.listen(PORT, function () {
+app.listen(PORT, () => {
     // Log (server-side) when our server has started
     console.log(`\nServer listening on: http://localhost:${PORT}\n`);
 });
