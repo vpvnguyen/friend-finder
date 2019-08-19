@@ -43,7 +43,7 @@ function getForm() {
     var q9 = Number($('#q9').val());
     var q10 = Number($('#q10').val());
 
-    // construct object from form data
+    // construct object from form data to be sent as validation and mysql query
     var userProfile = {
         name: userName,
         image: userImage,
@@ -91,7 +91,7 @@ function submitForm(userProfile) {
     });
 };
 
-// GET DATA TO API / JSON
+// post api as json
 function postAPI(userProfileJson) {
     // Send the POST request.
     $.ajax(`/api/friends`, {
