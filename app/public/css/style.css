@@ -5,3 +5,7 @@ select.empty {
 select option[disabled]:first-child {
 	display: none;
 }
+#match {
+	color: #ffffff;
+	text-decoration: none;
+}
