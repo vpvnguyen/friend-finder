@@ -59,17 +59,24 @@ function getForm() {
         answer10: q10
     };
 
+    // construct object from form data to be sent as API / JSON
+    var userProfileJson = {
+        name: userName,
+        image: userImage,
+        answers: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+    }
     // validate form data
-    validateForm(userProfile);
+    validateForm(userProfile, userProfileJson);
 };
 
-function validateForm(userProfile) {
+function validateForm(userProfile, userProfileJson) {
 
     // checks if answer to question is filled in correctly
     if (userProfile.name.length == 0 || userProfile.image.length == 0 || userProfile.answer1 == 0 || userProfile.answer2 == 0 || userProfile.answer3 == 0 || userProfile.answer4 == 0 || userProfile.answer5 == 0 || userProfile.answer6 == 0 || userProfile.answer7 == 0 || userProfile.answer8 == 0 || userProfile.answer9 == 0 || userProfile.answer10 == 0) {
         alert('Please fill out all fields.');
     } else {
         submitForm(userProfile);
+        postAPI(userProfileJson);
     };
 };
 
@@ -85,3 +92,13 @@ function submitForm(userProfile) {
 };
 
 // GET DATA TO API / JSON
+function postAPI(userProfileJson) {
+    // Send the POST request.
+    $.ajax(`/api/friends`, {
+        type: 'POST',
+        data: userProfileJson
+    }).catch(function (err) {
+        if (err) throw err;
+        console.log('uh oh');
+    });
+};
