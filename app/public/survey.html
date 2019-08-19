@@ -152,12 +152,21 @@
                     </select>
                 </div>
             </div>
-            <button id="submit-form" class="btn btn-dark mt-2" type="submit">Submit form</button>
-
-
-            <div id="result"></div>
-
+            <!-- Link to open the modal and Submit Form -->
+            <button id="submit-form" class="btn btn-dark mt-2" type="submit"><a id="match" href="#ex1"
+                    rel="modal:open">Submit form</a></button>
         </form>
+    </div>
+
+    <!-- open modal and display match when form is submitted -->
+    <div id="ex1" class="modal">
+        <div class="row">
+            <div id="match-image">photo</div>
+        </div>
+        <div class="row">
+                <div id="match-name">name</div>
+        </div>
+        <a href="#" rel="modal:close">Close</a>
     </div>
 
     <!-- footer -->
@@ -172,6 +181,9 @@
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="./js/app.js"></script>
 </body>
 
