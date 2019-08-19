@@ -31,5 +31,21 @@ module.exports = [
             2,
             3
         ]
+    },
+    {
+        'name': 'Keanu Reeves',
+        'image': 'randomimage.com',
+        'answers': [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
     }
 ]
