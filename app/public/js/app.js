@@ -1,3 +1,4 @@
+
 // bootstrap front-end form validation
 // checks if fields are filled in
 (function () {
@@ -75,12 +76,14 @@ function validateForm(userProfile, userProfileJson) {
     if (userProfile.name.length == 0 || userProfile.image.length == 0 || userProfile.answer1 == 0 || userProfile.answer2 == 0 || userProfile.answer3 == 0 || userProfile.answer4 == 0 || userProfile.answer5 == 0 || userProfile.answer6 == 0 || userProfile.answer7 == 0 || userProfile.answer8 == 0 || userProfile.answer9 == 0 || userProfile.answer10 == 0) {
         alert('Please fill out all fields.');
     } else {
-        submitForm(userProfile);
         postAPI(userProfileJson);
+        submitForm(userProfile);
+
     };
 };
 
 function submitForm(userProfile) {
+
     // Send the POST request.
     $.ajax(`/db/friends`, {
         type: 'POST',
@@ -89,30 +92,21 @@ function submitForm(userProfile) {
         if (err) throw err;
         console.log('uh oh');
     });
+
 };
 
 // post api as json
 function postAPI(userProfileJson) {
+
     // Send the POST request.
     $.ajax(`/api/friends`, {
         type: 'POST',
         data: userProfileJson
-    }).then((err, res) => {
-        getMatch(res)
+    }).done((match) => {
+        alert(JSON.stringify(match))
+        $("#myModal").modal("show");
     }).catch((err) => {
         if (err) throw err;
         console.log('uh oh');
     });
 };
-
-function getMatch(match) {
-
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/friends/", method: "GET" })
-        .then(function (match) {
-
-            // Here we then log the waitlistData to console, where it will show up as an object.
-            console.log(match);
-            console.log("------------------------------------");
-        });
-}

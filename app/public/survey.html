@@ -21,6 +21,7 @@
         <p>All fields are required. Choose between 1 (Strongly Disagree) to 5 (Strongly Agree) with the questions.</p>
     </div>
 
+
     <div class="container">
         <!-- bootstrap form validation -->
         <form class="needs-validation" novalidate>
@@ -151,14 +152,19 @@
                     </select>
                 </div>
             </div>
-            <button id="submit-form" class="btn btn-primary" type="submit">Submit form</button>
+            <button id="submit-form" class="btn btn-dark mt-2" type="submit">Submit form</button>
+
+
+            <div id="result"></div>
+
         </form>
     </div>
 
     <!-- footer -->
-    <footer class="footer">
+    <footer class="footer mt-3 mb-5">
         <div class="container">
             <a href="/api/friends">Friends API</a>
+            <a class="mx-1">|</a>
             <a href="/db">Database - All Friends</a>
         </div>
     </footer>
