@@ -9,7 +9,6 @@ module.exports = function (app) {
         console.log(req.body);
         console.log('\n');
 
-        allFriends.push(req.body);
         res.json(allFriends);
     });
 
