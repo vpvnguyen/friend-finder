@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-module.exports = function (app) {
+module.exports = (app) => {
 
     // CONNECT MYSQL
     // mysql connection config (remember to change this with your own credentials)
@@ -22,7 +22,11 @@ module.exports = function (app) {
     });
 
     // display all friends table
-    app.get('/db', function (req, res) {
+    app.get('/db', (req, res) => {
+
+        console.log('\nGET request | mysql => html | SELECT * FROM friends');
+        console.log(req.body);
+        console.log('\n');
 
         // query for friends table
         connection.query(`SELECT * FROM friends`, function (err, result) {
@@ -57,7 +61,11 @@ module.exports = function (app) {
     });
 
     // display possible friends - WIP
-    app.get('/db/friends', function (req, res) {
+    app.get('/db/friends', (req, res) => {
+
+        console.log('\nGET request | mysql => html | SELECT * FROM friends table');
+        console.log(req.body);
+        console.log('\n');
 
         // query for friends table
         connection.query(`SELECT * FROM friends`, function (err, result) {
@@ -93,9 +101,9 @@ module.exports = function (app) {
 
     // Create a new user profile
     // frontend form POST data to route
-    app.post('/db/friends', function (req, res) {
+    app.post('/db/friends', (req, res) => {
 
-        console.log('\nPOST request from survey');
+        console.log('\nPOST request | survey => mysql | Validate form');
         console.log(req.body);
         console.log('\n');
 
@@ -135,10 +143,14 @@ module.exports = function (app) {
     });
 
     // get data about person name
-    app.get('/db/friends/:name', function (req, res) {
+    app.get('/db/friends/:name', (req, res) => {
 
         // get user's name from route and query for all user info
         var userProfile = req.params.name;
+
+        console.log('\nGET request | mysql => dynamic html | SELECT * FROM friends WHERE name=?');
+        console.log(req.body);
+        console.log('\n');
 
         connection.query(`SELECT * FROM friends WHERE name=?`, userProfile, function (err, result) {
             if (err) throw err;
