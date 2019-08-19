@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var path = require('path');
 
 // use provided port or default to 3000
 var PORT = process.env.PORT || 3000;
