@@ -11,9 +11,9 @@
         // Loop over them and prevent submission
         var validation = Array.prototype.filter.call(forms, (form) => {
             form.addEventListener('submit', (event) => {
+                event.preventDefault();
 
                 if (!form.checkValidity()) {
-                    event.preventDefault();
                     event.stopPropagation();
                 }
                 form.classList.add('was-validated');
@@ -22,6 +22,7 @@
                 if (form.checkValidity()) {
                     getForm();
                 }
+
             }, false);
         });
     }, false);
@@ -104,7 +105,7 @@ function postAPI(userProfileJson) {
         data: userProfileJson
     }).done((match) => {
         alert(JSON.stringify(match))
-        $("#myModal").modal("show");
+        // $("#myModal").modal("show"); // ADD MODAL SUPPORT
     }).catch((err) => {
         if (err) throw err;
         console.log('uh oh');
