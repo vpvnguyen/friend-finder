@@ -5,11 +5,9 @@ Deployed to heroku: https://blooming-spire-75525.herokuapp.com
 - `git clone <repo>`.
 - cd into repo.
 - Terminal/Bash: `npm install`.
-> Express and MySQL should be installed.
-- Start MySQL server.
 - Create mock database using `friendFinder.sql`.
 - Start application: `node server.js`.
-> This starts your Express server and connects to MySQL.
+> Ensure that MySQL server is running.
 > Express server should be listening on `localhost:3000` and connected to MySQL.
 
 ### Default Configurations
@@ -30,7 +28,6 @@ MySQL `mysqlRoutes`:
         database: 'friendFinder'
     });
 ```
-
 
 # Application
 - Find similar people of interest with a personality test.
