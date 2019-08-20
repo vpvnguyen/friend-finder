@@ -1,2 +1,5 @@
 node_modules
 matchLogic.js
+.DS_Store
+app/.DS_Store
+app/public/.DS_Store
