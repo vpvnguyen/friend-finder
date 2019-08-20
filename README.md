@@ -13,12 +13,14 @@ Deployed to heroku: https://blooming-spire-75525.herokuapp.com
 > This starts your Express server and connects to MySQL.
 
 PORT `server.js`:
-    ```javascript
+
+```javascript
     var PORT = process.env.PORT || 3000;
-    ```
+```
 
 MySQL `mysqlRoutes`:
-    ```javascript
+
+```javascript
     var connection = mysql.createConnection({
         host: 'localhost',
         port: 8889,
@@ -26,7 +28,7 @@ MySQL `mysqlRoutes`:
         password: 'root',
         database: 'friendFinder'
     });
-    ```
+```
 
 # Application
 - Find similar people of interest with a personality test.
