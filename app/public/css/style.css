@@ -1,5 +1,9 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
 select.empty {
-	color: grey;
+	color: #D3D3D3;
 }
 /* Hidden placeholder */
 select option[disabled]:first-child {
@@ -8,4 +12,7 @@ select option[disabled]:first-child {
 #match {
 	color: #ffffff;
 	text-decoration: none;
+}
+#modal-split {
+	width: 60%;
 }
