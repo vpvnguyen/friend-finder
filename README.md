@@ -10,7 +10,9 @@ Deployed to heroku: https://blooming-spire-75525.herokuapp.com
 - Create mock database using `friendFinder.sql`.
 - Start application: `node server.js`.
 > This starts your Express server and connects to MySQL.
+> Express server should be listening on `localhost:3000` and connected to MySQL.
 
+### Default Configurations
 PORT `server.js`:
 
 ```javascript
@@ -29,7 +31,6 @@ MySQL `mysqlRoutes`:
     });
 ```
 
-> Express server should be listening on `localhost:3000` and connected to MySQL.
 
 # Application
 - Find similar people of interest with a personality test.
