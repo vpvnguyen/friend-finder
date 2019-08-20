@@ -1,8 +1,12 @@
 /* google font */
 body {
 	font-family: 'Open Sans', sans-serif;
+	background-color: #ffffff;
 }
-
+.jumbotron {
+	background-color: #edeeee;
+	color: black;
+}
 select.empty {
 	color: #D3D3D3;
 }

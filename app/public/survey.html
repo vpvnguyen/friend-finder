@@ -19,11 +19,20 @@
 <body>
     <!-- header -->
     <div class="jumbotron">
-        <h1>Survey</h1>
+        <h1 class="display-4">Survey</h1>
         <hr>
-        <p>Fill out the survey and find your best friend you have not yet met. All fields are required. Choose between 1
-            (Strongly Disagree) to 5 (Strongly Agree).
-        </p>
+        <ul>
+            <li>
+                Fill out the survey and find your best match!
+            </li>
+            <li>
+                All fields are required.
+            </li>
+            <li>
+                Choose between 1
+                (Strongly Disagree) to 5 (Strongly Agree).
+            </li>
+        </ul>
     </div>
 
     <div class="container">
@@ -46,121 +55,141 @@
                 </div>
 
                 <!-- form questions -->
-                <div class="form-group col-md-12">
+                <div class="col-md-12">
                     <label for="a1">1. I have a vivid imagination</label>
-                    <select class="form-control empty" id="q1">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q1" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="q2">2. I love large parties</label>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q2" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="q3">3. I believe in the importance of art</label>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q3" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
 
                 </div>
-                <div class="form-group col-md-12">
-                    <label for="q2">2. I love large parties</label>
-                    <select class="form-control empty" id="q2">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="q3">3. I believe in the importance of art</label>
-                    <select class="form-control empty" id="q3">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-12">
+                <div class="col-md-12">
                     <label for="q4">4. I am always busy</label>
-                    <select class="form-control empty" id="q4">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q4" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="col-md-12">
                     <label for="q5">5. I would never cheat on my taxes </label>
-                    <select class="form-control empty" id="q5">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q5" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="col-md-12">
                     <label for="q6">6. I make people feel welcome</label>
-                    <select class="form-control empty" id="q6">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q6" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
-                    <label for="q7">7. I am easy to satisfy</label>
-                    <select class="form-control empty" id="q7">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                <div class="col-md-12">
+                    <label for="q7">7. I seek adventure</label>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q7" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
-                    <label for="q8">8. I seek adventure</label>
-                    <select class="form-control empty" id="q8">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                <div class="col-md-12">
+                    <label for="q8">8. I am a gamer</label>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q8" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="col-md-12">
                     <label for="q9">9. I love reading API documentation</label>
-                    <select class="form-control empty" id="q9">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q9" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="col-md-12">
                     <label for="q10">10. I like pineapples on my pizza</label>
-                    <select class="form-control empty" id="q10">
-                        <option value="" selected disabled>Please select</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2 (Disagree)</option>
-                        <option value="3">3 (Neutral)</option>
-                        <option value="4">4 (Agree)</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
+                    <div class="form-group">
+                        <select class="form-control empty" id="q10" required>
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2 (Disagree)</option>
+                            <option value="3">3 (Neutral)</option>
+                            <option value="4">4 (Agree)</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <!-- Link to open the modal and Submit Form -->
-            <button id="submit-form" class="btn btn-dark mt-2" type="submit" data-toggle="modal"
+            <button id="submit-form" class="btn btn-dark btn-primary-outline mt-2" type="submit" data-toggle="modal"
                 data-target="#exampleModal">
                 Match
             </button>
@@ -203,8 +232,6 @@
     </footer>
 
     <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
