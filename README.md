@@ -1,5 +1,5 @@
 # Friend Finder
-Deployed to heroku: https://blooming-spire-75525.herokuapp.com/survey
+Deployed to heroku: https://blooming-spire-75525.herokuapp.com
 ### Built on Express.js, Node.js, MySQL
 
 # Setup
@@ -12,21 +12,21 @@ Deployed to heroku: https://blooming-spire-75525.herokuapp.com/survey
 - Start application: `node server.js`.
 > This starts your Express server and connects to MySQL.
 
-Express server:
-```javascript
-var PORT = process.env.PORT || 3000;
-```
+PORT `server.js`:
+    ```javascript
+    var PORT = process.env.PORT || 3000;
+    ```
 
-MySQL:
-```javascript
-var connection = mysql.createConnection({
-    host: 'localhost',
-    port: 8889,
-    user: 'root',
-    password: 'root',
-    database: 'friendFinder'
-});
-```
+MySQL `mysqlRoutes`:
+    ```javascript
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        port: 8889,
+        user: 'root',
+        password: 'root',
+        database: 'friendFinder'
+    });
+    ```
 
 # Application
 - Find similar people of interest with a personality test.
