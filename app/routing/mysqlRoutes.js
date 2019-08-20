@@ -99,7 +99,7 @@ module.exports = (app) => {
         });
     });
 
-    // Create a new user profile
+    // create a new user profile
     // frontend form POST data to route
     app.post('/db/friends', (req, res) => {
 

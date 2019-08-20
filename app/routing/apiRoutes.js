@@ -53,7 +53,5 @@ module.exports = function (app) {
 
         // send back json of best match
         res.json(match);
-
-        // WIP - to send data back to front as a modal of matcb
     });
 };
