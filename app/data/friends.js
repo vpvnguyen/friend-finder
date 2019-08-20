@@ -34,7 +34,7 @@ module.exports = [
     },
     {
         'name': 'Keanu Reeves',
-        'image': 'randomimage.com',
+        'image': 'https://townsquare.media/site/366/files/2019/08/keanu-reeves.jpg?w=980&q=75',
         'answers': [
             1,
             1,
@@ -63,5 +63,22 @@ module.exports = [
             1,
             1
         ]
+    },
+    {
+        'name': 'Spider Man',
+        'image': 'https://i.kinja-img.com/gawker-media/image/upload/s--Y5MFHCiB--/c_scale,f_auto,fl_progressive,q_80,w_800/ztutpshxdrs1lvjluxw3.jpg',
+        'answers': [
+            3,
+            2,
+            2,
+            5,
+            5,
+            1,
+            5,
+            5,
+            1,
+            5
+        ]
     }
 ]
+
