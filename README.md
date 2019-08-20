@@ -1,6 +1,5 @@
-# Friend Finder
+# Friend Finder (Express.js, Node.js, MySQL)
 Deployed to heroku: https://blooming-spire-75525.herokuapp.com
-### Built on Express.js, Node.js, MySQL
 
 # Setup
 - `git clone <repo>`.
