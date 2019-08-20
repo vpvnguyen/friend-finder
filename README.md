@@ -30,6 +30,8 @@ MySQL `mysqlRoutes`:
     });
 ```
 
+> Express server should be listening on `localhost:3000` and connected to MySQL.
+
 # Application
 - Find similar people of interest with a personality test.
 - User answers survey questions to be matched with the person of similar score.
