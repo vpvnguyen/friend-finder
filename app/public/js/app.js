@@ -75,11 +75,10 @@ function validateForm(userProfile, userProfileJson) {
 
     // checks if answer to question is filled in correctly
     if (userProfile.name.length == 0 || userProfile.image.length == 0 || userProfile.answer1 == 0 || userProfile.answer2 == 0 || userProfile.answer3 == 0 || userProfile.answer4 == 0 || userProfile.answer5 == 0 || userProfile.answer6 == 0 || userProfile.answer7 == 0 || userProfile.answer8 == 0 || userProfile.answer9 == 0 || userProfile.answer10 == 0) {
-        alert('Please fill out all fields.');
+        return;
     } else {
         postAPI(userProfileJson);
         submitForm(userProfile);
-
     };
 };
 
@@ -91,7 +90,6 @@ function submitForm(userProfile) {
         data: userProfile
     }).catch((err) => {
         if (err) throw err;
-        console.log('uh oh');
     });
 
 };
@@ -106,11 +104,14 @@ function postAPI(userProfileJson) {
     }).done((match) => {
         $('#match-title').empty();
         $('#match-name').empty();
+        $('#match-image').empty();
         $('#match-title').text('Match!');
-        $('#match-name').text(match.name);
-        $('#match-image').text(match.image)
+        $('#match-name').append(`<h3>${match.name}</h3>`);
+        $('#match-image').attr('src', match.image);
+        var img = $('<img id="dynamic-image" class="text-center" style="width:100%;max-width:300px">'); //Equivalent: $(document.createElement('img'))
+        img.attr('src', match.image);
+        img.appendTo('#match-image');
     }).catch((err) => {
         if (err) throw err;
-        console.log('uh oh');
     });
 };
